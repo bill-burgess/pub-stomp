@@ -1,5 +1,5 @@
 const initialState = require('../../state')
-module.exports = function events (state = initialState.events, action) {
+module.exports = function matches (state = initialState.matches, action) {
   switch (action.type) {
 
     default:
