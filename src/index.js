@@ -8,7 +8,7 @@ const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 const { MuiThemeProvider } = require('material-ui/styles')
 
 const reducer = require('./reducer')
-const initialState = require('./state')
+const initialState = require('../state')
 // components
 const App = require('./containers/app')
 const Login = require('./containers/login')

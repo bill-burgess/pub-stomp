@@ -2,12 +2,15 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Link } = require('react-router')
 
+const EventsDisplaying = require('../components/events-displaying')
+
 class Events extends React.Component {
 
   render(){
+    const { displayedEvents, dispatch, router } = this.props
     return (
       <div>
-        hello events
+        <EventsDisplaying displayedEvents={displayedEvents} dispatch={dispatch} router={router} />
       </div>
     )
   }
