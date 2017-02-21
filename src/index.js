@@ -6,11 +6,13 @@ const { Provider } = require('react-redux')
 const createHistory = require('history').createHashHistory
 const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 const { MuiThemeProvider } = require('material-ui/styles')
+
 const reducer = require('./reducer')
 const initialState = require('./state')
 // components
 const App = require('./containers/app')
-
+const Login = require('./containers/login')
+const Events = require('./containers/events')
 // actions
 // plain object {type: string, payload: Object | string | number}
 
@@ -27,6 +29,8 @@ const Root = ({store}) => {
       <Provider store={store} >
         <Router history={hashHistory}>
           <Route path='/' component={App}>
+            <IndexRoute component={Login} />
+            <Route path='/events' component={Events} />
           </Route>
         </Router>
       </Provider>
