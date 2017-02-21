@@ -1,7 +1,7 @@
 const { combineReducers } = require('redux')
 
-const events = require('./events')
+const matches = require('./matches')
 
 module.exports = combineReducers({
-  events
+  matches
 })
