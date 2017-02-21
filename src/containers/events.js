@@ -7,10 +7,10 @@ const EventsDisplaying = require('../components/events-displaying')
 class Events extends React.Component {
 
   render(){
-    const { displayedEvents, dispatch, router } = this.props
+    const { events, dispatch, router } = this.props
     return (
       <div>
-        <EventsDisplaying displayedEvents={displayedEvents} dispatch={dispatch} router={router} />
+        <EventsDisplaying events={events} dispatch={dispatch} router={router} />
       </div>
     )
   }
