@@ -7,10 +7,10 @@ const MatchesDisplaying = require('../components/matches-displaying')
 class Events extends React.Component {
 
   render(){
-    const { matches, dispatch, router } = this.props
+    const { matches, dispatch, router, filters } = this.props
     return (
       <div>
-        <MatchesDisplaying matches={matches} dispatch={dispatch} router={router} />
+        <MatchesDisplaying matches={matches} dispatch={dispatch} router={router} filters={filters} />
       </div>
     )
   }

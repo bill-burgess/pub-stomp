@@ -2,10 +2,14 @@ const React = require('react')
 const _ = require('lodash')
 
 const MatchesDisplaying = (props) => {
-  const { matches, dispatch, router } = props
+  const { matches, dispatch, router, filters } = props
 
   function filterMatches(matches, filters){
-    return matches
+    const { sports, dateBefore, dateAfter } = filters
+    let filteredMatches = matches.filter(match => {
+      return true
+    })
+    return filteredMatches
   }
 
   function dateAsString(date){
@@ -15,7 +19,7 @@ const MatchesDisplaying = (props) => {
 
   function displayMatches(matches, filters){
     const displayingMatches = filterMatches(matches, filters)
-    return _.map(displayingMatches, match => {
+    return displayingMatches.map(match => {
       const { tournament, id, team1, team2, date } = match
       return (
         <div key={id}>
@@ -29,7 +33,7 @@ const MatchesDisplaying = (props) => {
 
   return (
     <div>
-      {displayMatches(matches, null)}
+      {displayMatches(matches, filters)}
     </div>
   )
 }

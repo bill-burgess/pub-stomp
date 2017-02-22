@@ -15,4 +15,9 @@ module.exports = {
       date: '2017-02-25-05-00'
     }
   ],
+  filters: {
+    sports: ['dota2', 'starCraft2'],
+    dateAfter: null,
+    dateBefore: '2017-02-25-00-00',
+  }
 }
