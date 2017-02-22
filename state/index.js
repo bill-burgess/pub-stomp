@@ -26,8 +26,8 @@ module.exports = {
     },
   ],
   filters: {
-    sports: ['dota2', 'starCraft2'],
+    sports: [],
     dateAfter: null,
-    dateBefore: 'Sat Feb 25 2017 00:00:00 GMT+1300 (NZDT)',
+    dateBefore: null,
   }
 }
