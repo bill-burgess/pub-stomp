@@ -26,7 +26,11 @@ module.exports = {
     },
   ],
   filters: {
-    sports: [],
+    sports: {
+      dota2: true,
+      hearthstone: true,
+      starCraft2: true
+    },
     dateAfter: null,
     dateBefore: null,
   }

@@ -40,11 +40,13 @@ class Filters extends React.Component {
     return (
       <div>
         <div className='toggleSports'>
-          <p>Sports</p><br />
+          <h3>Sports</h3>
           <Toggle
-            label="Label on the right"
+            label="Dota 2"
             labelPosition="right"
+            defaultToggled={filters.sports.dota2}
             style={styles.toggle}
+            onToggle={() => dispatch({type: 'TOGGLE_SPORT', payload: 'dota2'})}
           />
         </div>
       </div>
