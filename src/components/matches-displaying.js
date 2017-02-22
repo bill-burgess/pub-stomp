@@ -3,18 +3,16 @@ const _ = require('lodash')
 
 const MatchesDisplaying = (props) => {
   const { matches, dispatch, router, filters } = props
+  console.log(new Date());
 
   function filterMatches(matches, filters){
     const { sports, dateBefore, dateAfter } = filters
     let filteredMatches = matches.filter(match => {
-      return true
+      return sports.find(sport => {
+        return sport === match.sport
+      })
     })
     return filteredMatches
-  }
-
-  function dateAsString(date){
-    const dateElements = date.split('-')
-    return `${dateElements[2]}-${dateElements[1]} @ ${dateElements[3]} : ${dateElements[4]}`
   }
 
   function displayMatches(matches, filters){
@@ -25,7 +23,7 @@ const MatchesDisplaying = (props) => {
         <div key={id}>
           <p>{tournament}</p>
           <span>{team1.name} VS {team2.name}</span>
-          <p>{dateAsString(date)}</p><br />
+          <p>{date}</p><br />
         </div>
       )
     })
