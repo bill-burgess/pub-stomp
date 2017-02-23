@@ -13,41 +13,37 @@ class Filters extends React.Component {
   render(){
     const { dispatch, filters } = this.props
 
+    const sports = [
+      {name: 'Dota 2', value: 'dota2'},
+      {name: 'StarCraft 2', value: 'starCraft2'},
+      {name: 'Hearthstone', value: 'hearthstone'}
+    ]
+
     const styles = {
-      block: {
-        maxWidth: 250,
-      },
       toggle: {
         marginBottom: 16,
-      },
-      thumbOff: {
-        backgroundColor: '#ffcccc',
-      },
-      trackOff: {
-        backgroundColor: '#ff9d9d',
-      },
-      thumbSwitched: {
-        backgroundColor: 'red',
-      },
-      trackSwitched: {
-        backgroundColor: '#ff9d9d',
-      },
-      labelStyle: {
-        color: 'red',
-      },
-    };
+      }
+    }
+
+    function displaySportsToggles(sports){
+      return sports.map(sport => {
+        return (
+          <Toggle
+            label={sport.name}
+            labelPosition="right"
+            defaultToggled={filters.sports[sport.value]}
+            style={styles.toggle}
+            onToggle={() => dispatch({type: 'TOGGLE_SPORT', payload: sport.value})}
+          />
+        )
+      })
+    }
 
     return (
       <div>
         <div className='toggleSports'>
           <h3>Sports</h3>
-          <Toggle
-            label="Dota 2"
-            labelPosition="right"
-            defaultToggled={filters.sports.dota2}
-            style={styles.toggle}
-            onToggle={() => dispatch({type: 'TOGGLE_SPORT', payload: 'dota2'})}
-          />
+          {displaySportsToggles(sports)}
         </div>
       </div>
     )

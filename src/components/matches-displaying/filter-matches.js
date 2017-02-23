@@ -37,7 +37,7 @@ function monthToValue(monthStr){
       return 12
 
     default:
-      return 'halp'
+      return
   }
 }
 
