@@ -37,19 +37,14 @@ function monthToValue(monthStr){
       return 12
 
     default:
-      return 'halp'
+      return
   }
 }
 
 module.exports = (matches, filters) => {
   const { sports, dateBefore, dateAfter } = filters
   let filteredMatches = matches.filter(match => {
-    if(!sports.length){
-      return true
-    }
-    return sports.find(sport => {
-      return sport === match.sport
-    })
+    return sports[match.sport]
   })
   filteredMatches = filteredMatches.filter(match => {
     if(!dateBefore){
