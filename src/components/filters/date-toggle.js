@@ -4,7 +4,7 @@ import 'react-date-picker/index.css'
 
 class DateToggle extends React.Component{
   render(){
-
+    const { dispatch } = this.props
     const onChange = (dateString, { dateMoment, timestamp }) => {
       dispatch({type: 'DATE_SELECT', payload: dateString})
     }

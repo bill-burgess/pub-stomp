@@ -5,13 +5,6 @@ const DateToggle = require('./date-toggle')
 
 class Filters extends React.Component {
 
-  handleToggle(){
-    const { dispatch } = this.props
-    console.log(this.refs);
-    // const sport = this.refs.value
-    console.log('clicked it');
-  }
-
   render(){
     const { dispatch, filters } = this.props
 

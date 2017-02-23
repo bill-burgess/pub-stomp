@@ -36,7 +36,7 @@ test('DATE_SELECT | sets the date selected as the before or after date', t => {
     })
   })
 
-  const newState2 = reducer(initialState, action)
+  const newState2 = reducer(expectedState, action2)
 
   t.deepEqual(newState2, expectedState2, 'should change second date and select back to 0')
 
