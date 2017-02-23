@@ -4,12 +4,14 @@ import 'react-date-picker/index.css'
 
 class DateToggle extends React.Component{
   render(){
-    const { dispatch } = this.props
+    const { dispatch, filters } = this.props
     const onChange = (dateString, { dateMoment, timestamp }) => {
       dispatch({type: 'DATE_SELECT', payload: dateString})
     }
 
-    let date = '2017-04-24'
+    const defaultRange = filters.date[0]
+      ? [filters.date[0], filters.date[1]]
+      : []
 
     return (
       <div className='toggleDate'>
@@ -19,7 +21,7 @@ class DateToggle extends React.Component{
           weekStartDay={1}
           footer={false}
           onActiveDateChange={onChange}
-          defaultRange={[]}
+          defaultRange={defaultRange}
           highlightRangeOnMouseMove={true}
         />
       </div>
@@ -28,4 +30,3 @@ class DateToggle extends React.Component{
 }
 
 module.exports = DateToggle
-//new Date(give date).getTime() => return millisecs since 1 jan 1970
