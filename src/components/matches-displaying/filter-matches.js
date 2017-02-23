@@ -1,6 +1,5 @@
 module.exports = (matches, filters) => {
   const { sports, date } = filters
-  console.log(!(date[0] && date[1]));
   let filteredMatches = matches.filter(match => {
     return sports[match.sport]
   })
