@@ -4,7 +4,7 @@ const freeze = require('deep-freeze')
 const reducer = require('../../src/reducer')
 const initialState = require('../../state')
 
-test('TOGGLE_SPORT | toggles the boolean value of the selected sport', t => {
+test('DATE_SELECT | sets the date selected as the before or after date', t => {
 
   freeze(initialState)
 
