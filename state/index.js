@@ -31,7 +31,10 @@ module.exports = {
       hearthstone: true,
       starCraft2: true
     },
-    dateAfter: null,
-    dateBefore: null,
+    date: {
+      select: 0,
+      0: null,
+      1: null
+    }
   }
 }
