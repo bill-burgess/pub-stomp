@@ -9,6 +9,10 @@ class DateToggle extends React.Component{
       dispatch({type: 'DATE_SELECT', payload: dateString})
     }
 
+    const defaultRange = filters.date[0]
+      ? [filters.date[0], filters.date[1]]
+      : []
+
     return (
       <div className='toggleDate'>
         <MonthView
@@ -17,7 +21,7 @@ class DateToggle extends React.Component{
           weekStartDay={1}
           footer={false}
           onActiveDateChange={onChange}
-          defaultRange={[filters.date[0], filters.date[1]]}
+          defaultRange={defaultRange}
           highlightRangeOnMouseMove={true}
         />
       </div>
@@ -26,4 +30,3 @@ class DateToggle extends React.Component{
 }
 
 module.exports = DateToggle
-//new Date(give date).getTime() => return millisecs since 1 jan 1970
