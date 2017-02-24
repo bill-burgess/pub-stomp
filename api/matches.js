@@ -1,14 +1,13 @@
 const express = require('express')
 const route = express.Router()
 
-const db = require('../db')
-
 module.exports = function(db){
   route.get('/', getAllMatches)
 
   function getAllMatches(req, res, next){
-    db.getAllMatches(err, res => {
-      res.json({ok: true, matches: res.matches})
+    db.getAllMatches((err, response) => {
+      if(err) res.json({ok: false, error: 'Cannot connect to db'})
+      res.json({ok: true, matches: response})
     })
   }
 

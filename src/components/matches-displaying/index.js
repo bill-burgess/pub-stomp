@@ -7,16 +7,15 @@ const filterMatches = require('./filter-matches')
 class MatchesDisplaying extends React.Component {
 
   componentDidMount(){
-    setTimeout(() => {
-      const { dispatch } = this.props
-      request.get('api/v1/matches', (err, res) => {
-        if(!res.body.ok){
-          console.log(res.body.error)
-          return
-        }
-        dispatch({type: 'UPDATE_MATCHES', payload: res.body.matches})
-      })
-    }, 4000)
+    const { dispatch } = this.props
+    request.get('api/v1/matches', (err, res) => {
+      if(err) console.error('err', err)
+      if(!res.body.ok){
+        console.log(res.body.error)
+        return
+      }
+      dispatch({type: 'UPDATE_MATCHES', payload: res.body.matches})
+    })
   }
 
   render(){
