@@ -1,19 +1,22 @@
 const React = require('react')
 const request = require('superagent')
+const Loader = require('halogen/RingLoader')
 
 const filterMatches = require('./filter-matches')
 
 class MatchesDisplaying extends React.Component {
 
   componentDidMount(){
-    const { dispatch } = this.props
-    request.get('api/v1/matches', (err, res) => {
-      if(!res.body.ok){
-        console.log(res.body.error)
-        return
-      }
-      dispatch({type: 'UPDATE_MATCHES', payload: res.body.matches})
-    })
+    setTimeout(() => {
+      const { dispatch } = this.props
+      request.get('api/v1/matches', (err, res) => {
+        if(!res.body.ok){
+          console.log(res.body.error)
+          return
+        }
+        dispatch({type: 'UPDATE_MATCHES', payload: res.body.matches})
+      })
+    }, 4000)
   }
 
   render(){
@@ -21,7 +24,7 @@ class MatchesDisplaying extends React.Component {
 
     function displayMatches(matches, filters){
       const displayingMatches = filterMatches(matches, filters)
-      return displayingMatches.map(match => {
+      const matchesShowing = displayingMatches.map(match => {
         const { tournament, id, team1, team2, date } = match
         return (
           <div key={id}>
@@ -31,6 +34,10 @@ class MatchesDisplaying extends React.Component {
           </div>
         )
       })
+      const display = matches.length
+        ? matchesShowing
+        : <Loader color="red" />
+      return display
     }
 
     return (
