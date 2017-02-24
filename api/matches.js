@@ -4,7 +4,7 @@ const route = express.Router()
 const db = require('../db')
 
 module.exports = function(db){
-  route.get('/matches', getAllMatches)
+  route.get('/', getAllMatches)
 
   function getAllMatches(req, res, next){
     res.json({ok: true, matches: [

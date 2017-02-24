@@ -6,9 +6,13 @@ const filterMatches = require('./filter-matches')
 class MatchesDisplaying extends React.Component {
 
   componentDidMount(){
+    const { dispatch } = this.props
     request.get('api/v1/matches', (err, res) => {
-      if(err) console.error(err)
-      console.log('Got the things!', res)
+      if(!res.body.ok){
+        console.log(res.body.error)
+        return
+      }
+      dispatch({type: 'UPDATE_MATCHES', payload: res.body.matches})
     })
   }
 
