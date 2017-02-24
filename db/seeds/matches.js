@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
             id: 1,
             sport: 'dota2',
             tournament: 'SL i-League Season 3',
-            team1: 4,
+            team1: 1,
             team2: 2,
             date: '2017-02-24'
           }
@@ -18,8 +18,8 @@ exports.seed = function(knex, Promise) {
             id: 2,
             sport: 'dota2',
             tournament: 'SL i-League Season 3',
-            team1: 16,
-            team2: 31,
+            team1: 3,
+            team2: 4,
             date: '2017-02-25'
           }
         ),
@@ -28,12 +28,11 @@ exports.seed = function(knex, Promise) {
             id: 3,
             sport: 'hearthstone',
             tournament: 'ESL Trinity Series',
-            team1: 14,
-            team2: 8,
+            team1: 5,
+            team2: 6,
             date: '2017-03-25'
           }
         )
       ])
-      // Inserts seed entries
   })
 }
