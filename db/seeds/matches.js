@@ -32,6 +32,16 @@ exports.seed = function(knex, Promise) {
             team2: 6,
             date: '2017-03-25'
           }
+        ),
+        knex('matches').insert(
+          {
+            id: 4,
+            sport: 'starCraft2',
+            tournament: 'starCraft2 world champs',
+            team1: 17,
+            team2: 41,
+            date: '2017-04-07'
+          }
         )
       ])
   })
