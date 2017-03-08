@@ -1,5 +1,6 @@
 module.exports = {
   matches: [],
+  teams: [],
   filters: {
     sports: {
       dota2: true,

@@ -35,7 +35,7 @@ class MatchesDisplaying extends React.Component {
       })
       const display = matches.length
         ? matchesShowing
-        : <Loader color="red" />
+        : <Loader color="blue" />
       return display
     }
 
