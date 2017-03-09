@@ -12,5 +12,10 @@ module.exports = {
       0: null,
       1: null
     }
+  },
+  loggedIn: null,
+  conditionalComponents: {
+    signUp: false,
+    login: false
   }
 }
