@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments()
     table.string('email')
     table.string('hash')
-    table.string('location')
+    table.integer('location')
   })
 };
 

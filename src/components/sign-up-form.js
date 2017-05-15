@@ -1,9 +1,39 @@
 const React = require('react')
+const request = require('superagent')
+
+const confirmEntryValid = require('./confirm-entry-valid.js')
 
 class SignUpForm extends React.Component{
 
   handleSubmit(){
-    console.log('clicked')
+    const { dispatch, router } = this.props
+
+    const email = this.refs.email.value
+    const password = this.refs.password.value
+    const passwordConfirm = this.refs.passwordConfirm.value
+    const location = this.refs.location.value
+
+    confirmEntryValid({ email, password, passwordConfirm, location }, res => {
+      if(res.valid){
+        request.post('api/v1/users/create')
+        .send({ email, password, location })
+        .end((err, res) => {
+          if(err){
+            console.log('whoops!', err)
+          }else{
+            if(res.body.register){
+              dispatch({type: 'LOGIN', payload: res.body.user})
+              router.push('/events')
+            }else{
+              console.log(res.body.error)
+            }
+          }
+        })
+      }else{
+        console.log(res.dispatch)
+      }
+    })
+
   }
 
   render(){
@@ -19,11 +49,12 @@ class SignUpForm extends React.Component{
       })
     }
 
-      const locations = [
-        {locationId: 1, locationName: 'Auckland'},
-        {locationId: 2, locationName: 'Wellington'},
-        {locationId: 3, locationName: 'Christchurch'},
-      ]
+    const locations = [
+      {locationId: 0, locationName: 'Auckland'},
+      {locationId: 1, locationName: 'Wellington'},
+      {locationId: 2, locationName: 'Christchurch'},
+      {locationId: 3, locationName: 'Other'},
+    ]
 
     return (
       <div>
