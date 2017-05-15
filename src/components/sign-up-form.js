@@ -15,7 +15,7 @@ class SignUpForm extends React.Component{
 
     confirmEntryValid({ email, password, passwordConfirm, location }, res => {
       if(res.valid){
-        request.post('api/v1/users/create')
+        request.post('api/v1/users/new')
         .send({ email, password, location })
         .end((err, res) => {
           if(err){
