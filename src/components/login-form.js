@@ -30,8 +30,8 @@ class LoginForm extends React.Component{
       <div>
         <form>
           <div>
-            <input className='formEntryField' type='text' ref='email' placeholder='Email' /><br />
-            <input className='formEntryField' type='password' ref='password' placeholder='Password' />
+            <input className='formEntry' type='text' ref='email' placeholder='Email' /><br />
+            <input className='formEntry' type='password' ref='password' placeholder='Password' />
           </div>
         </form>
         <button onClick={this.handleSubmit.bind(this)}>Submit</button>
