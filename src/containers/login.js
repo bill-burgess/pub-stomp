@@ -25,11 +25,11 @@ class Login extends React.Component {
   }
 
   render() {
-    const { conditionalComponents } = this.props
+    const { conditionalComponents, dispatch, router } = this.props
     const { signUp, login } = conditionalComponents
     const formShowing = signUp
       ? <SignUpForm />
-      : <LoginForm />
+      : <LoginForm dispatch={dispatch} router={router}/>
     const display = (login || signUp)
     ? formShowing
     : (
